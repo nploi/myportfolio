@@ -9,10 +9,6 @@ class ProfilePage extends StatelessWidget {
     return ResponsiveWidget(
       largeScreen: Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Colors.black,
-        ),
         drawer: ResponsiveWidget.isSmallScreen(context)
             ? Drawer(
                 child: ListView(
@@ -70,8 +66,7 @@ class NavHeader extends StatelessWidget {
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          PKDot(),
-//          Spacer(),
+          Spacer(),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: <Widget>[
@@ -91,35 +86,6 @@ class NavHeader extends StatelessWidget {
             )
         ],
       ),
-    );
-  }
-}
-
-class PKDot extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Text(
-          "PK MTECHVIRAL",
-          textScaleFactor: 2,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(
-          width: 5,
-        ),
-        AnimatedContainer(
-          duration: Duration(seconds: 1),
-          height: 8,
-          width: 8,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.orange,
-          ),
-        ),
-      ],
     );
   }
 }
@@ -159,11 +125,10 @@ class ProfileInfo extends StatelessWidget {
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
           backgroundBlendMode: BlendMode.luminosity,
-          color: Colors.deepOrange,
-//            borderRadius: BorderRadius.circular(40),
+          color: Colors.blue,
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: AssetImage("pk.jpg"),
+            image: AssetImage("avatar.jpg"),
             alignment: Alignment.center,
             fit: BoxFit.cover,
           ),
@@ -179,8 +144,8 @@ class ProfileInfo extends StatelessWidget {
         style: TextStyle(color: Colors.orange),
       ),
       Text(
-        "Pawan\nKumar",
-        textScaleFactor: 5,
+        "Nguyen Phuc\nLoi",
+        textScaleFactor: 3,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
@@ -190,9 +155,7 @@ class ProfileInfo extends StatelessWidget {
         height: 10,
       ),
       Text(
-        "A Google Developer Expert for Flutter, Dart & Web Tech.\n"
-        "I am also a youtuber having MTechViral youtube channel\n"
-        "where I make tutorials for technology.",
+        "A Flutter developer and student at the VNUHCM - University of Science.",
         softWrap: true,
         textScaleFactor: 1.5,
         style: TextStyle(color: Colors.white70),
@@ -267,7 +230,7 @@ class SocialInfo extends StatelessWidget {
                 color: Colors.blue,
               ),
               NavButton(
-                text: "Twitter",
+                text: "Linkedin",
                 onPressed: () {},
                 color: Colors.blue,
               ),
@@ -279,7 +242,7 @@ class SocialInfo extends StatelessWidget {
             ],
           ),
           Text(
-            "Pawan Kumar ©️2019",
+            "Nguyen Phuc Loi ©️2019",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.grey,
@@ -296,17 +259,12 @@ class SocialInfo extends StatelessWidget {
             color: Colors.blue,
           ),
           NavButton(
-            text: "Twitter",
-            onPressed: () {},
-            color: Colors.blue,
-          ),
-          NavButton(
             text: "Facebook",
             onPressed: () {},
             color: Colors.blue,
           ),
           Text(
-            "Pawan Kumar ©️2019",
+            "Nguyen Phuc Loi ©️2019",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.grey,
