@@ -7,6 +7,7 @@ class NavHeader extends StatelessWidget {
   const NavHeader({Key key, this.children}) : super(key: key);
 
   Widget build(BuildContext context) {
+    var style = TextStyle(fontWeight: FontWeight.bold);
     return ResponsiveWidget(
       largeScreen: Row(
         mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
@@ -14,7 +15,20 @@ class NavHeader extends StatelessWidget {
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Spacer(),
+          Row(
+            children: <Widget>[
+              Text('Nguyen Phuc ', style: style),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text('Loi', style: style),
+                ),
+              )
+            ],
+          ),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: children,

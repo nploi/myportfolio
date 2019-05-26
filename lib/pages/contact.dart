@@ -7,6 +7,9 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
+      child: Center(
+        child: Text('Contact'),
+      ),
     );
   }
 }

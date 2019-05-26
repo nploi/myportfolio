@@ -86,24 +86,24 @@ class _HomePageState extends State<HomePage>
     setState(() {
       _currentIndex = index;
       _scrollController?.animateTo(100 * index / 2,
-          duration: const Duration(milliseconds: 100), curve: Curves.ease);
+          duration: const Duration(milliseconds: 1000), curve: Curves.ease);
     });
   }
 
   void _selectPage(int index) {
     setState(() {
       _pageController?.animateToPage(index,
-          duration: const Duration(milliseconds: 400), curve: Curves.ease);
+          duration: const Duration(milliseconds: 1000), curve: Curves.ease);
     });
   }
 
   _nextSlider() {
     _pageController.nextPage(
-        duration: Duration(milliseconds: 400), curve: Curves.linear);
+        duration: Duration(milliseconds: 1000), curve: Curves.linear);
   }
 
   _prevSlider() {
     _pageController.previousPage(
-        duration: Duration(milliseconds: 400), curve: Curves.easeIn);
+        duration: Duration(milliseconds: 1000), curve: Curves.easeIn);
   }
 }
