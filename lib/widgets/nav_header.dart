@@ -1,9 +1,11 @@
 import 'package:flutter_web/material.dart';
-
-import 'nav_button.dart';
 import 'responsive_widget.dart';
 
 class NavHeader extends StatelessWidget {
+  final List<Widget> children;
+
+  const NavHeader({Key key, this.children}) : super(key: key);
+
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Row(
@@ -15,20 +17,7 @@ class NavHeader extends StatelessWidget {
           Spacer(),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
-              children: <Widget>[
-                NavButton(
-                  text: "about",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "work",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "contact",
-                  onPressed: () {},
-                ),
-              ],
+              children: children,
             )
         ],
       ),

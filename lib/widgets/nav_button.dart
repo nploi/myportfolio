@@ -1,4 +1,3 @@
-
 import 'package:flutter_web/material.dart';
 
 class NavButton extends StatelessWidget {

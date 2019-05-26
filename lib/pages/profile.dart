@@ -9,30 +9,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      largeScreen: Scaffold(
-        backgroundColor: Colors.black,
-        drawer: ResponsiveWidget.isSmallScreen(context)
-            ? Drawer(
-                child: ListView(
-                  padding: const EdgeInsets.all(20),
-                  children: <Widget>[
-                    NavButton(
-                      text: "about",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "work",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "contact",
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              )
-            : null,
-        body: SingleChildScrollView(
+      largeScreen: Container(
+        color: Colors.black,
+        child: SingleChildScrollView(
           child: AnimatedPadding(
             duration: Duration(seconds: 1),
             padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
