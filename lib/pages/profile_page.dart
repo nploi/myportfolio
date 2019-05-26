@@ -1,5 +1,7 @@
 import 'package:flutter_web/material.dart';
-import 'package:myportfolio/responsive_widget.dart';
+import 'package:myportfolio/widgets/nav_button.dart';
+import 'package:myportfolio/widgets/responsive_widget.dart';
+import 'package:myportfolio/widgets/social_info.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
@@ -38,10 +40,6 @@ class ProfilePage extends StatelessWidget {
               largeScreen: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  NavHeader(),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.1,
-                  ),
                   ProfileInfo(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
@@ -53,64 +51,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class NavHeader extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return ResponsiveWidget(
-      largeScreen: Row(
-        mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
-            ? MainAxisAlignment.center
-            : MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Spacer(),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            Row(
-              children: <Widget>[
-                NavButton(
-                  text: "about",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "work",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "contact",
-                  onPressed: () {},
-                ),
-              ],
-            )
-        ],
-      ),
-    );
-  }
-}
-
-class NavButton extends StatelessWidget {
-  final text;
-  final onPressed;
-  final Color color;
-
-  const NavButton(
-      {Key key,
-      @required this.text,
-      @required this.onPressed,
-      this.color = Colors.orange})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlineButton(
-      child: Text(text),
-      borderSide: BorderSide(
-        color: color,
-      ),
-      onPressed: onPressed,
-      highlightedBorderColor: color,
     );
   }
 }
@@ -155,7 +95,7 @@ class ProfileInfo extends StatelessWidget {
         height: 10,
       ),
       Text(
-        "A Flutter developer and student at the VNUHCM - University of Science.",
+        "A Flutter developer \nand student at the VNUHCM - University of Science.",
         softWrap: true,
         textScaleFactor: 1.5,
         style: TextStyle(color: Colors.white70),
@@ -208,68 +148,6 @@ class ProfileInfo extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.1,
           ),
           profileData
-        ],
-      ),
-    );
-  }
-}
-
-class SocialInfo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ResponsiveWidget(
-      largeScreen: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              NavButton(
-                text: "Github",
-                onPressed: () {},
-                color: Colors.blue,
-              ),
-              NavButton(
-                text: "Linkedin",
-                onPressed: () {},
-                color: Colors.blue,
-              ),
-              NavButton(
-                text: "Facebook",
-                onPressed: () {},
-                color: Colors.blue,
-              ),
-            ],
-          ),
-          Text(
-            "Nguyen Phuc Loi ©️2019",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-      smallScreen: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          NavButton(
-            text: "Github",
-            onPressed: () {},
-            color: Colors.blue,
-          ),
-          NavButton(
-            text: "Facebook",
-            onPressed: () {},
-            color: Colors.blue,
-          ),
-          Text(
-            "Nguyen Phuc Loi ©️2019",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
         ],
       ),
     );
