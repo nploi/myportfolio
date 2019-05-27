@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'dart:js' as js;
 
 import 'nav_button.dart';
 import 'responsive_widget.dart';
@@ -15,17 +16,25 @@ class SocialInfo extends StatelessWidget {
             children: <Widget>[
               NavButton(
                 text: "Github",
-                onPressed: () {},
+                onPressed: () {
+                  js.context.callMethod("open", ["https://github.com/nploi"]);
+                },
                 color: Colors.blue,
               ),
               NavButton(
                 text: "Linkedin",
-                onPressed: () {},
+                onPressed: () {
+                  js.context.callMethod(
+                      "open", ["https://www.linkedin.com/in/loinp"]);
+                },
                 color: Colors.blue,
               ),
               NavButton(
                 text: "Facebook",
-                onPressed: () {},
+                onPressed: () {
+                  js.context.callMethod(
+                      "open", ["https://www.facebook.com/nploi.it"]);
+                },
                 color: Colors.blue,
               ),
             ],
@@ -44,12 +53,25 @@ class SocialInfo extends StatelessWidget {
         children: <Widget>[
           NavButton(
             text: "Github",
-            onPressed: () {},
+            onPressed: () {
+              js.context.callMethod("open", ["https://github.com/nploi"]);
+            },
+            color: Colors.blue,
+          ),
+          NavButton(
+            text: "Linkedin",
+            onPressed: () {
+              js.context
+                  .callMethod("open", ["https://www.linkedin.com/in/loinp"]);
+            },
             color: Colors.blue,
           ),
           NavButton(
             text: "Facebook",
-            onPressed: () {},
+            onPressed: () {
+              js.context
+                  .callMethod("open", ["https://www.facebook.com/nploi.it"]);
+            },
             color: Colors.blue,
           ),
           Text(

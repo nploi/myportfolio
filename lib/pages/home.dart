@@ -5,7 +5,6 @@ import 'package:myportfolio/pages/work.dart';
 import 'package:myportfolio/widgets/nav_button.dart';
 import 'package:myportfolio/widgets/nav_header.dart';
 import 'package:myportfolio/widgets/responsive_widget.dart';
-
 import 'profile.dart';
 
 class HomePage extends StatefulWidget {
