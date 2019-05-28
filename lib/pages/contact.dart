@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web/painting.dart';
 import 'package:flutter_web/widgets.dart';
 import 'package:myportfolio/widgets/responsive_widget.dart';
 
@@ -18,8 +19,35 @@ class _ContactPageState extends State<ContactPage> {
         child: SingleChildScrollView(
           child: AnimatedPadding(
             duration: Duration(seconds: 1),
-            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
-            child: buildForm(),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
+            child: Column(
+              children: <Widget>[
+                buildForm(),
+                SizedBox(
+                  height: 100,
+                ),
+                buildTextHeader('CONTACT INFORMATION'),
+                Divider(),
+                buildInfo(name: 'Email', info: 'nploi1998@gmail.com'),
+                SizedBox(
+                  height: 50,
+                ),
+                buildTextHeader('ABOUT THIS WEBSITE'),
+                Divider(),
+                Text(
+                    "I'm forked from https://github.com/iampawan/myportfolio\nWrited by flutter for web"),
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  "Nguyen Phuc Loi ©️2019",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -27,40 +55,43 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   Widget buildForm() {
-    return Form(
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           buildTextHeader('CONTACT ME'),
           SizedBox(
             width: 50,
             child: Divider(),
           ),
-          TextFormField(
+          TextField(
+            textInputAction: TextInputAction.next,
             decoration: InputDecoration(
               hintText: 'Your name',
             ),
-            textAlign: TextAlign.center,
             cursorColor: Colors.orange,
           ),
-          TextFormField(
+          TextField(
+            textInputAction: TextInputAction.next,
             decoration: InputDecoration(
               hintText: 'Your email address',
             ),
-            textAlign: TextAlign.center,
             cursorColor: Colors.orange,
           ),
-          TextFormField(
+          TextField(
+            textInputAction: TextInputAction.next,
             decoration: InputDecoration(
               hintText: 'Your phone number',
             ),
-            textAlign: TextAlign.center,
             cursorColor: Colors.orange,
           ),
-          TextFormField(
+          TextField(
             decoration: InputDecoration(
               hintText: 'Message',
             ),
-            textAlign: TextAlign.center,
             keyboardType: TextInputType.multiline,
             maxLines: null,
             cursorColor: Colors.orange,
@@ -68,46 +99,20 @@ class _ContactPageState extends State<ContactPage> {
           SizedBox(
             height: 20,
           ),
-          IconButton(
-            color: Colors.orange,
-            iconSize: 30,
-            icon: Icon(
-              Icons.send,
-            ),
+          RaisedButton(
+            shape: StadiumBorder(),
+            child: Text("Send"),
+            color: Colors.red,
             onPressed: () {},
-          ),
-          SizedBox(
-            height: 100,
-          ),
-          buildTextHeader('CONTACT INFORMATION'),
-          SizedBox(
-            width: 50,
-            child: Divider(),
-          ),
-          buildInfo(name: 'Email', info: 'nploi1998@gmail.com'),
-          SizedBox(
-            height: 50,
-          ),
-          buildTextHeader('ABOUT THIS WEBSITE'),
-          SizedBox(
-            width: 50,
-            child: Divider(),
-          ),
-          Text(
-              "I'm forked from https://github.com/iampawan/myportfolio\nWrited by flutter for web"),
-          SizedBox(
-            height: 50,
-          ),
-          Text(
-            "Nguyen Phuc Loi ©️2019",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
+            padding: EdgeInsets.all(10),
           ),
         ],
       ),
     );
+  }
+
+  Widget buildInput(String hintText) {
+    return TextField();
   }
 
   Widget buildTextHeader(String text) {

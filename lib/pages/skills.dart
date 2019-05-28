@@ -19,44 +19,50 @@ class _SkillsPageState extends State<SkillsPage> {
           child: AnimatedPadding(
             duration: Duration(seconds: 1),
             padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Column(
-                children: <Widget>[
-                  buildTextHeader('Program languages'),
-                  Divider(),
-                  buildSkill(name: 'C++', value: 6),
-                  buildSkill(name: 'C#', value: 6),
-                  buildSkill(name: 'Golang', value: 6),
-                  buildSkill(name: 'Java', value: 5),
-                  buildSkill(name: 'JavaScript', value: 5),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  buildTextHeader('Soft skills'),
-                  Divider(),
-                  buildSkill(name: 'Teamwork', value: 9),
-                  buildSkill(name: 'Communication', value: 7),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  buildTextHeader('Tools & Technologies'),
-                  Divider(),
-                  buildSkill(name: 'Git', value: 8),
-                  buildSkill(name: 'Linux', value: 9),
-                  buildSkill(name: 'Cmake', value: 8),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  buildTextHeader('Other Skills'),
-                  Divider(),
-                  buildSkill(name: 'Flutter', value: 8),
-                  buildSkill(name: 'MYSQL', value: 6),
-                ],
-              ),
-            ),
+            child: buildSkills(),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildSkills() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.2,
+      child: Column(
+        children: <Widget>[
+          buildTextHeader('Program languages'),
+          Divider(),
+          buildSkill(name: 'C++', value: 7),
+          buildSkill(name: 'C#', value: 6),
+          buildSkill(name: 'Golang', value: 7),
+          buildSkill(name: 'Java', value: 6),
+          buildSkill(name: 'JavaScript', value: 6),
+          SizedBox(
+            height: 20,
+          ),
+          buildTextHeader('Soft skills'),
+          Divider(),
+          buildSkill(name: 'Teamwork', value: 9),
+          buildSkill(name: 'Communication', value: 7),
+          SizedBox(
+            height: 20,
+          ),
+          buildTextHeader('Tools & Technologies'),
+          Divider(),
+          buildSkill(name: 'Git', value: 8),
+          buildSkill(name: 'Linux', value: 9),
+          buildSkill(name: 'Cmake', value: 8),
+          SizedBox(
+            height: 20,
+          ),
+          buildTextHeader('Other Skills'),
+          Divider(),
+          buildSkill(name: 'Flutter', value: 8),
+          buildSkill(name: 'Algorithm', value: 6),
+          buildSkill(name: 'Data structure', value: 8),
+          buildSkill(name: 'MYSQL', value: 6),
+        ],
       ),
     );
   }

@@ -4,12 +4,14 @@ class NavButton extends StatelessWidget {
   final text;
   final onPressed;
   final Color color;
+  final Color splashColor;
 
   const NavButton(
       {Key key,
       @required this.text,
       @required this.onPressed,
-      this.color = Colors.orange})
+      this.color = Colors.orange,
+      this.splashColor = Colors.orangeAccent})
       : super(key: key);
 
   @override
@@ -23,6 +25,7 @@ class NavButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         highlightedBorderColor: color,
+        splashColor: splashColor,
       ),
     );
   }
