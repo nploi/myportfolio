@@ -19,7 +19,7 @@ class _ContactPageState extends State<ContactPage> {
         child: SingleChildScrollView(
           child: AnimatedPadding(
             duration: Duration(seconds: 1),
-            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
             child: Column(
               children: <Widget>[
                 buildForm(),
