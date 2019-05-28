@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage>
           : null,
       body: PageView(
         controller: _pageController,
+        onPageChanged: _onPageChanged,
         children: <Widget>[
           ProfilePage(),
           SkillsPage(),
@@ -56,24 +57,28 @@ class _HomePageState extends State<HomePage>
     return <Widget>[
       NavButton(
         text: "about",
+        isSelected: _currentIndex == 0,
         onPressed: () {
           _selectPage(0);
         },
       ),
       NavButton(
         text: "skills",
+        isSelected: _currentIndex == 1,
         onPressed: () {
           _selectPage(1);
         },
       ),
       NavButton(
         text: "work",
+        isSelected: _currentIndex == 2,
         onPressed: () {
           _selectPage(2);
         },
       ),
       NavButton(
         text: "contact",
+        isSelected: _currentIndex == 3,
         onPressed: () {
           _selectPage(3);
         },
@@ -84,8 +89,6 @@ class _HomePageState extends State<HomePage>
   void _onPageChanged(int index) {
     setState(() {
       _currentIndex = index;
-      _scrollController?.animateTo(100 * index / 2,
-          duration: const Duration(milliseconds: 1000), curve: Curves.ease);
     });
   }
 
@@ -94,15 +97,5 @@ class _HomePageState extends State<HomePage>
       _pageController?.animateToPage(index,
           duration: const Duration(milliseconds: 1000), curve: Curves.ease);
     });
-  }
-
-  _nextSlider() {
-    _pageController.nextPage(
-        duration: Duration(milliseconds: 1000), curve: Curves.linear);
-  }
-
-  _prevSlider() {
-    _pageController.previousPage(
-        duration: Duration(milliseconds: 1000), curve: Curves.easeIn);
   }
 }
